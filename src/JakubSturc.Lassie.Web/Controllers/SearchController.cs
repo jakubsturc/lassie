@@ -21,10 +21,10 @@ namespace JakubSturc.Lassie.Web.Controllers
         }
 
         [HttpGet("list")]
-        public async Task<IEnumerable<string>> List()
+        public async Task<IEnumerable<object>> List()
         {
             var sites = await _searchService.GetAllSites();
-            return sites.Select(s => s.Id);
+            return sites.Select(s => new { s.Id, s.Name, s.BaseUrl });
         }
 
         [HttpGet("{site}/{code}")]

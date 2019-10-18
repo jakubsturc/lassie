@@ -6,34 +6,44 @@
     }
 
     function onSearchClicked() {
-
-        showResultSection();
-
         var code = document.getElementsByName('code')[0].value;
         getJson('search/list', function (sites) {
+            showResultSection();
             for (i = 0; i < sites.length; ++i) {
                 var site = sites[i];
-                var searchUrl = 'search' + '/' + site + '/' + code;
+                createSite(site);
+                var searchUrl = 'search' + '/' + site.id + '/' + code;
                 getJson(searchUrl, displaySearchResponse);
             }
         });
     }
 
-    function displaySearchResponse(res) {
-        displayDebug(res);
+    function createSite(site) {
         var results = document.getElementById('results');
         var item = document.createElement('li');
-        item.innerHTML = '<a href="' + res.url + '">' + res.siteId + '</a> ' + (res.worthChecking ? '✔' : '❌');
+        item.setAttribute("id", site.id);
+        item.innerHTML = '<a href="' + site.baseUrl + '">' + site.name + '</a> <i class="fas fa-paw fa-spin"></i>';
         results.appendChild(item);
+    }
+
+    function displaySearchResponse(response) {
+        var item = document.getElementById(response.siteId);
+        var elements = item.getElementsByTagName("svg");
+        for (i = 0; i < elements.length; ++i) {
+            item.removeChild(elements[i]);
+        }
+        var text = response.worthChecking ? " ✔" : " ❌";
+        var node = document.createTextNode(text);
+        item.appendChild(node);
     }
 
     function getJson(url, onload) {
         var req = new XMLHttpRequest();
         req.overrideMimeType('application/json');
         req.open('GET', url, true);
-        req.onload = function () {
+        req.onload = function() {
             var json = JSON.parse(req.responseText);
-            onload(json)
+            onload(json);
         };
         req.send(null);
     }
