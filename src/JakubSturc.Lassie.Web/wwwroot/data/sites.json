@@ -1,0 +1,51 @@
+﻿[
+  {
+    "id": "backhome",
+    "name": "backhome.cz",
+    "baseurl": "https://www.backhome.cz/",
+    "searchurl": "https://www.backhome.cz/chip/search/{0}",
+    "method": "get",
+    "notfoundtexts": [ "mikročip není v databázi registrován" ]
+  },
+  {
+    "id": "nrmz",
+    "name": "narodniregistr.cz",
+    "baseurl": "https://www.narodniregistr.cz/",
+    "searchurl": "https://www.narodniregistr.cz/vyhledej_cip.php?cip_cislo={0}&akce=hledej",
+    "method": "get",
+    "notfoundtexts": [ "nebylo v databázi nalezeno" ]
+  },
+  {
+    "id": "registrmikrocipu",
+    "name": "registrmikrocipu.cz",
+    "baseurl": "https://www.registrmikrocipu.cz/",
+    "searchurl": "https://www.registrmikrocipu.cz/search/index?search={0}&limit=5&page=1",
+    "method": "get",
+    "notfoundtexts": [ "Žádný čip nebyl nalezen", "Hledaný kód čipu musí být dlouhý 15 znaků a obsahovat pouze číslice" ]
+  },
+  {
+    "id": "petfamily",
+    "name": "centralniregistrzvirat.cz",
+    "baseurl": "https://www.centralniregistrzvirat.cz/",
+    "searchurl": "https://www.centralniregistrzvirat.cz/homepage/identifikator?s={0}",
+    "method": "get",
+    "notfoundtexts": [ "nebyl nalezen žádný záznam" ]
+  },
+  {
+    "id": "komora",
+    "name": "Komora veterinárních lékařů České republiky",
+    "baseurl": "https://petpas.vetkom.cz/",
+    "searchurl": "https://petpas.vetkom.cz/cs/content/findAnimal#",
+    "method": "post",
+    "body": "search_phrase={0}&find_submit=Vyhledat",
+    "notfoundtexts": [ "Nebyl nalezen žádný záznam" ]
+  },
+  {
+    "id": "pet2me",
+    "name": "pet2me.eu",
+    "baseurl": "https://www.pet2me.eu/",
+    "searchurl": "https://api.pet2me.eu/Pet/GetByUniqueNumberOrTagCode?query={0}",
+    "method": "get",
+    "foundtexts": [ "Result" ]
+  }
+]

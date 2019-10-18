@@ -1,0 +1,31 @@
+﻿@page
+@model JakubSturc.Lassie.Web.Pages.IndexModel
+@{
+    Layout = "_Layout";
+}
+
+    <section class="section">
+        <div class="container">
+            <div class="field is-grouped">
+                <div class="control is-expanded">
+                    <input name="code" class="input is-large is-focused" type="text" placeholder="Napíš číslo čipu">
+                </div>
+                <div class="control">
+                    <a id="btn" class="button is-info is-large">🔎</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container is-hidden">
+            <h2 class="title is-large">Výsledky</h2>
+            <div class="content is-large">
+                <ul id="results">
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="~/js/site.js"></script>
+
