@@ -23,15 +23,14 @@ namespace JakubSturc.Lassie.Web.Services
         /// <summary>
         /// Returns all available sites.
         /// </summary>
-        /// <remarks>Method is async just to keep same api as other methods.</remarks>
-        public async Task<IEnumerable<string>> GetSites()
+        public async Task<IEnumerable<Site>> GetAllSites()
         {
-            return await Task.FromResult(_repository.AllSites.Select(site => site.Id));
+            return await _repository.GetAllSites();
         }
 
         public async Task<SearchResult> Search(string siteId, string code)
         {
-            var site = _repository.GetSite(siteId);
+            var site = await _repository.GetSite(siteId);
             var url = site.GetSearchUrlFor(code);
             var result = new SearchResult.Builder(site.Id, url);
 

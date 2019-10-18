@@ -23,7 +23,7 @@
         displayDebug(res);
         var results = document.getElementById('results');
         var item = document.createElement('li');
-        item.innerHTML = '<a href="' + res.url + '">' + res.siteId + '</a>' + (res.worthChecking ? '✔' : '❌');
+        item.innerHTML = '<a href="' + res.url + '">' + res.siteId + '</a> ' + (res.worthChecking ? '✔' : '❌');
         results.appendChild(item);
     }
 
